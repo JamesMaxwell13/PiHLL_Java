@@ -21,7 +21,7 @@ public class SharesController {
     }
 
     @GetMapping
-    public ResponseEntity<CompanyShare> getShareApiInfo(@RequestParam(value = "symbol", required = false) String symbol) {
+    public ResponseEntity<CompanyShare> getShareApiInfo(@RequestParam(value = "symbol") String symbol) {
         CompanyShare shareResponse = sharesService.getShareRequest(symbol);
         System.out.println(symbol);
         return new ResponseEntity<>(shareResponse, HttpStatus.OK);
