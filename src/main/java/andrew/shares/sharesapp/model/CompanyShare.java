@@ -20,6 +20,4 @@ public class CompanyShare {
     private String lastUpdated;
 
     private String symbol;
-
-    private String name;
 }

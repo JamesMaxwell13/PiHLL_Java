@@ -9,5 +9,4 @@ import java.util.List;
 public interface SharesService {
     List<FindCompanyResponse> getCompanyList(String query);
     CompanyShare getShareRequest(String symbol);
-    List<CompanyShare> getSharesList(List<FindCompanyResponse> companiesName);
 }

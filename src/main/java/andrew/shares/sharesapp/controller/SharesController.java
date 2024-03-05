@@ -23,10 +23,15 @@ public class SharesController {
         this.sharesService = sharesService;
     }
 
-    @GetMapping
-    public ResponseEntity<List<CompanyShare>> getShareApiInfo(@RequestParam(value = "query") String query) {
+    @GetMapping("find")
+    public ResponseEntity<List<FindCompanyResponse>> getFindName(@RequestParam(value = "query") String query) {
         List<FindCompanyResponse> companiesName = sharesService.getCompanyList(query);
-        List<CompanyShare> sharesList = sharesService.getSharesList(companiesName);
-        return new ResponseEntity<>(sharesList, HttpStatus.OK);
+        return new ResponseEntity<>(companiesName, HttpStatus.OK);
+    }
+
+    @GetMapping("share")
+    public ResponseEntity<CompanyShare> getShareApiInfo(@RequestParam(value = "symbol") String symbol) {
+        CompanyShare shareResponse = sharesService.getShareRequest(symbol);
+        return new ResponseEntity<>(shareResponse, HttpStatus.OK);
     }
 }

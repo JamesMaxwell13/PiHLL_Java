@@ -25,24 +25,10 @@ public class SharesServiceImplement implements SharesService {
         FindCompanyResponse[] findResponse = responseEntity.getBody();
 
         if (findResponse != null && findResponse.length > 0) {
-            List<FindCompanyResponse> companiesName = new ArrayList<>(Arrays.asList(findResponse));
-            return companiesName.subList(0, 1);
+            return new ArrayList<>(Arrays.asList(findResponse));
         } else {
             return Collections.emptyList();
         }
-    }
-
-    @Override
-    public List<CompanyShare> getSharesList(List<FindCompanyResponse> companiesName) {
-        List<CompanyShare> companiesShares = new ArrayList<>();
-        for(FindCompanyResponse company : companiesName) {
-            CompanyShare currentShare = this.getShareRequest(company.getSymbol());
-            if(currentShare == null || companiesName.isEmpty())
-                return Collections.emptyList();
-            currentShare.setName(company.getName());
-            companiesShares.add(currentShare);
-        }
-        return companiesShares;
     }
 
     @Override
