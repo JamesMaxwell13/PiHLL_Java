@@ -6,6 +6,7 @@ import lombok.Data;
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class CompanyShare {
+
     private Float prevClose;
 
     private Float high;

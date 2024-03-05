@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("sharesapp")
+@RequestMapping("sharesapp/")
 public class SharesController {
     private final SharesService sharesService;
 
@@ -21,9 +21,8 @@ public class SharesController {
     }
 
     @GetMapping
-    public ResponseEntity<CompanyShare> getShareApiInfo(@RequestParam(value = "symbol") String symbol) {
+    public ResponseEntity<CompanyShare> getShareApiInfo(@RequestParam(value = "query") String query) {
         CompanyShare shareResponse = sharesService.getShareRequest(symbol);
-        System.out.println(symbol);
         return new ResponseEntity<>(shareResponse, HttpStatus.OK);
     }
 }

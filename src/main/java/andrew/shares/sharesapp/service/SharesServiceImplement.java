@@ -1,15 +1,28 @@
 package andrew.shares.sharesapp.service;
 
 import andrew.shares.sharesapp.model.CompanyShare;
+import andrew.shares.sharesapp.model.FindCompanyResponse;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.List;
+
 @Service
 public class SharesServiceImplement implements SharesService{
     @Value("${apikey}")
     private String apikey;
+
+    @Override
+    public List<FindCompanyResponse> getCompanyList(String query) {
+
+    }
+
+    @Override
+    public List<CompanyShare> getSharesList(String query) {
+
+    }
 
     @Override
     public CompanyShare getShareRequest(String symbol) {
