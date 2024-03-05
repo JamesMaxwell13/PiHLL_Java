@@ -1,6 +1,7 @@
 package andrew.shares.sharesapp.controller;
 
 import andrew.shares.sharesapp.model.CompanyShare;
+import andrew.shares.sharesapp.model.FindCompanyResponse;
 import andrew.shares.sharesapp.service.SharesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,8 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
-@RequestMapping("sharesapp/")
+@RequestMapping("api/v1/sharesapp/")
 public class SharesController {
     private final SharesService sharesService;
 
@@ -21,8 +24,9 @@ public class SharesController {
     }
 
     @GetMapping
-    public ResponseEntity<CompanyShare> getShareApiInfo(@RequestParam(value = "query") String query) {
-        CompanyShare shareResponse = sharesService.getShareRequest(symbol);
-        return new ResponseEntity<>(shareResponse, HttpStatus.OK);
+    public ResponseEntity<List<CompanyShare>> getShareApiInfo(@RequestParam(value = "query") String query) {
+        List<FindCompanyResponse> companiesName = sharesService.getCompanyList(query);
+        List<CompanyShare> sharesList = sharesService.getSharesList(companiesName);
+        return new ResponseEntity<>(sharesList, HttpStatus.OK);
     }
 }
