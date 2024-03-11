@@ -9,11 +9,6 @@ This service allows you to view the status of shares of many companies on most w
 ## Getting Started
 To get started with this project, you need to create your own API key. You should sign up for an API key [here]((https://site.financialmodelingprep.com/developer/docs)).
 
-## Technologies Used
-- Java 17
-- Spring Boot
-- Maven
-
 ## Installation
 1. Clone the repository
 2. Create an application.properties file and add in the file your local port and api-key:
