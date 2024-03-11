@@ -7,7 +7,7 @@ This service allows you to view the status of shares of many companies on most w
 - Maven
 
 ## Getting Started
-To get started with this project, you need to create your own API key. You should sign up for an API key [here]((https://site.financialmodelingprep.com/developer/docs)).
+To get started with this project, you need to create your own API key. You should sign up for an API key [here](https://site.financialmodelingprep.com/developer/docs).
 
 ## Installation
 1. Clone the repository
